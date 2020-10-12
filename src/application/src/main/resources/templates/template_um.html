@@ -1,0 +1,98 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style type="text/css">
+        body {
+            font: 12pt Georgia, "Times New Roman", Times, serif;
+            line-height: 1.3;
+        }
+
+        @page {
+            margin-top:3.3cm;
+            margin-left:2cm;
+            margin-right:2cm;
+            margin-bottom:3.3cm;
+
+            size: A4 portrait;
+
+            /* switch to landscape
+            size: landscape;*/
+            /* set page margins */
+            /*margin: 0.5cm;*/
+            /* Default footers */
+            @bottom-left {
+                content: "Venenatis Mattis";
+            }
+            @bottom-right {
+                content: counter(page) " de " counter(pages);
+            }
+        }
+
+        /* footer, header - position: fixed */
+        #header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        #footer {
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        /* Fix overflow of headers and content */
+        body {
+            padding-top: 50px;
+        }
+        .custom-page-start {
+            margin-top: 50px;
+        }
+
+        .custom-footer-page-number:after {
+            content: counter(page);
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom HTML header -->
+    <div>
+        <h2>Aliquam vel justo risus</h2>
+    </div>
+
+    <!-- Custom HTML footer -->
+<!--    <div id="footer">-->
+<!--        <h2>Consectetur Adipiscing Elit</h2>-->
+<!--        <span class="custom-footer-page-number">Página: </span>-->
+<!--    </div>-->
+
+    <!-- New page for each client  -->
+    <div class="custom-page-start" style="page-break-before: always;">
+        <h3 style="text-align: center; color: black">
+            <span th:text="'Contrato do tipo ' + ${type}"></span>
+        </h3>
+        <p style="text-align: justify"><b>Primeiro Outorgante</b> de nome <b th:text="${name}"></b> e endereco <b th:text="${endereco}"></b>ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula ultricies dolor. Vestibulum sit amet ornare leo, ut bibendum nibh. Nunc sit amet vestibulum nunc. In sit amet mauris ac magna pulvinar pretium. Nullam in mollis ligula, et pulvinar turpis. Morbi ut ornare arcu, eu aliquam nunc. Phasellus rhoncus ligula in diam gravida tincidunt. Phasellus fermentum ornare finibus. Phasellus lobortis justo a odio tempor finibus. Cras ipsum sem, scelerisque id convallis id, viverra vel nunc. Vivamus tempus tincidunt ex, ut aliquet quam ultrices in. Mauris finibus molestie nisi. Aenean fringilla eget odio at ultricies. Donec faucibus tortor neque, gravida tristique tortor semper mollis. Aenean mattis tortor massa, sed cursus nisi fringilla quis. Morbi dictum viverra urna, id aliquet dolor porta a.</p>
+        <p style="text-align: justify"><b>Artigo X</b> Aliquam feugiat vehicula dignissim. Donec mi velit, rutrum ac metus in, malesuada dictum purus. Suspendisse non ultrices nisl. Duis cursus blandit rhoncus. Maecenas fringilla suscipit ex et condimentum. Nulla lacus erat, sodales at eros nec, cursus congue libero. Sed diam turpis, tincidunt et tempus ut, dictum a turpis. Nulla sit amet magna accumsan, suscipit ipsum in, iaculis dui. Cras volutpat tincidunt viverra. Quisque eget elementum risus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam velit odio, molestie sed rutrum ut, posuere in ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin vitae pharetra neque, ultrices sodales lectus. Sed vel dolor ligula.</p>
+        <p style="text-align: justify">Mauris in tellus diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam hendrerit ligula fermentum vehicula tempor. Cras commodo ullamcorper urna sit amet porta. Praesent et orci mi. Morbi semper mattis ipsum, nec placerat dolor gravida mollis. Vestibulum ultrices velit a eros pulvinar rutrum. Suspendisse gravida eu nulla vel congue. Duis non vestibulum tellus, et fringilla arcu. Integer semper porta maximus. Cras tincidunt tempor bibendum. Nunc molestie vel turpis at ullamcorper. Proin maximus vitae felis non dictum. Aenean euismod ornare nisl, sit amet fringilla felis. Curabitur dapibus eros eget velit tempus scelerisque.</p>
+        <p style="text-align: justify"><b>Artigo X</b> Aliquam in fringilla ipsum, ac mollis lectus. Duis in tristique urna, ac accumsan felis. Morbi at lacus ac ex vulputate tincidunt ut eu metus. Fusce et accumsan felis, id tincidunt leo. Nam ornare, orci non gravida rhoncus, lacus nulla congue sapien, ut dignissim ex mi vitae nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas quis massa eu urna euismod egestas. Ut auctor tellus erat, sit amet dapibus ligula viverra sed. Curabitur fermentum mi sodales ullamcorper cursus. Donec malesuada orci vitae dictum pharetra. Vivamus in hendrerit arcu, laoreet dapibus erat.</p>
+        <p style="text-align: justify"><b>Artigo X</b> Aliquam feugiat vehicula dignissim. Donec mi velit, rutrum ac metus in, malesuada dictum purus. Suspendisse non ultrices nisl. Duis cursus blandit rhoncus. Maecenas fringilla suscipit ex et condimentum. Nulla lacus erat, sodales at eros nec, cursus congue libero. Sed diam turpis, tincidunt et tempus ut, dictum a turpis. Nulla sit amet magna accumsan, suscipit ipsum in, iaculis dui. Cras volutpat tincidunt viverra. Quisque eget elementum risus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam velit odio, molestie sed rutrum ut, posuere in ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin vitae pharetra neque, ultrices sodales lectus. Sed vel dolor ligula.</p>
+        <p style="text-align: justify">Mauris in tellus diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam hendrerit ligula fermentum vehicula tempor. Cras commodo ullamcorper urna sit amet porta. Praesent et orci mi. Morbi semper mattis ipsum, nec placerat dolor gravida mollis. Vestibulum ultrices velit a eros pulvinar rutrum. Suspendisse gravida eu nulla vel congue. Duis non vestibulum tellus, et fringilla arcu. Integer semper porta maximus. Cras tincidunt tempor bibendum. Nunc molestie vel turpis at ullamcorper. Proin maximus vitae felis non dictum. Aenean euismod ornare nisl, sit amet fringilla felis. Curabitur dapibus eros eget velit tempus scelerisque.</p>
+
+        <p style="text-align: justify"><b>Artigo X</b> Aliquam in fringilla ipsum, ac mollis lectus. Duis in tristique urna, ac accumsan felis. Morbi at lacus ac ex vulputate tincidunt ut eu metus. Fusce et accumsan felis, id tincidunt leo. Nam ornare, orci non gravida rhoncus, lacus nulla congue sapien, ut dignissim ex mi vitae nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas quis massa eu urna euismod egestas. Ut auctor tellus erat, sit amet dapibus ligula viverra sed. Curabitur fermentum mi sodales ullamcorper cursus. Donec malesuada orci vitae dictum pharetra. Vivamus in hendrerit arcu, laoreet dapibus erat.</p>
+        <p style="text-align: justify">Morbi a eros tellus. Sed id metus quis ante venenatis mattis vitae vel nunc. Aliquam vel justo risus. Nam eget erat eget dolor consequat sodales eget vel mi. Cras purus massa, blandit sit amet diam eu, tempor iaculis quam. Phasellus nec odio ipsum. Ut posuere viverra velit nec tristique. Ut ligula lectus, cursus sed bibendum nec, condimentum vitae magna.</p>
+        <p style="text-align: justify"><b>Artigo X</b> Aliquam feugiat vehicula dignissim. Donec mi velit, rutrum ac metus in, malesuada dictum purus. Suspendisse non ultrices nisl. Duis cursus blandit rhoncus. Maecenas fringilla suscipit ex et condimentum. Nulla lacus erat, sodales at eros nec, cursus congue libero. Sed diam turpis, tincidunt et tempus ut, dictum a turpis. Nulla sit amet magna accumsan, suscipit ipsum in, iaculis dui. Cras volutpat tincidunt viverra. Quisque eget elementum risus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam velit odio, molestie sed rutrum ut, posuere in ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin vitae pharetra neque, ultrices sodales lectus. Sed vel dolor ligula.</p>
+        <p style="text-align: justify">Mauris in tellus diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam hendrerit ligula fermentum vehicula tempor. Cras commodo ullamcorper urna sit amet porta. Praesent et orci mi. Morbi semper mattis ipsum, nec placerat dolor gravida mollis. Vestibulum ultrices velit a eros pulvinar rutrum. Suspendisse gravida eu nulla vel congue. Duis non vestibulum tellus, et fringilla arcu. Integer semper porta maximus. Cras tincidunt tempor bibendum. Nunc molestie vel turpis at ullamcorper. Proin maximus vitae felis non dictum. Aenean euismod ornare nisl, sit amet fringilla felis. Curabitur dapibus eros eget velit tempus scelerisque.</p>
+        <p style="text-align: justify"><b>Artigo X</b> Aliquam in fringilla ipsum, ac mollis lectus. Duis in tristique urna, ac accumsan felis. Morbi at lacus ac ex vulputate tincidunt ut eu metus. Fusce et accumsan felis, id tincidunt leo. Nam ornare, orci non gravida rhoncus, lacus nulla congue sapien, ut dignissim ex mi vitae nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas quis massa eu urna euismod egestas. Ut auctor tellus erat, sit amet dapibus ligula viverra sed. Curabitur fermentum mi sodales ullamcorper cursus. Donec malesuada orci vitae dictum pharetra. Vivamus in hendrerit arcu, laoreet dapibus erat.</p>
+        <p style="text-align: justify">Morbi a eros tellus. Sed id metus quis ante venenatis mattis vitae vel nunc. Aliquam vel justo risus. Nam eget erat eget dolor consequat sodales eget vel mi. Cras purus massa, blandit sit amet diam eu, tempor iaculis quam. Phasellus nec odio ipsum. Ut posuere viverra velit nec tristique. Ut ligula lectus, cursus sed bibendum nec, condimentum vitae magna.</p>
+        <p style="text-align: justify">Morbi a eros tellus. Sed id metus quis ante venenatis mattis vitae vel nunc. Aliquam vel justo risus. Nam eget erat eget dolor consequat sodales eget vel mi. Cras purus massa, blandit sit amet diam eu, tempor iaculis quam. Phasellus nec odio ipsum. Ut posuere viverra velit nec tristique. Ut ligula lectus, cursus sed bibendum nec, condimentum vitae magna.</p>
+
+        <p style="text-align: justify"><b>Artigo X</b> Aliquam feugiat vehicula dignissim. Donec mi velit, rutrum ac metus in, malesuada dictum purus. Suspendisse non ultrices nisl. Duis cursus blandit rhoncus. Maecenas fringilla suscipit ex et condimentum. Nulla lacus erat, sodales at eros nec, cursus congue libero. Sed diam turpis, tincidunt et tempus ut, dictum a turpis. Nulla sit amet magna accumsan, suscipit ipsum in, iaculis dui. Cras volutpat tincidunt viverra. Quisque eget elementum risus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam velit odio, molestie sed rutrum ut, posuere in ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin vitae pharetra neque, ultrices sodales lectus. Sed vel dolor ligula.</p>
+        <p style="text-align: justify">Mauris in tellus diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam hendrerit ligula fermentum vehicula tempor. Cras commodo ullamcorper urna sit amet porta. Praesent et orci mi. Morbi semper mattis ipsum, nec placerat dolor gravida mollis. Vestibulum ultrices velit a eros pulvinar rutrum. Suspendisse gravida eu nulla vel congue. Duis non vestibulum tellus, et fringilla arcu. Integer semper porta maximus. Cras tincidunt tempor bibendum. Nunc molestie vel turpis at ullamcorper. Proin maximus vitae felis non dictum. Aenean euismod ornare nisl, sit amet fringilla felis. Curabitur dapibus eros eget velit tempus scelerisque.</p>
+        <p style="text-align: justify"><b>Artigo X</b> Aliquam in fringilla ipsum, ac mollis lectus. Duis in tristique urna, ac accumsan felis. Morbi at lacus ac ex vulputate tincidunt ut eu metus. Fusce et accumsan felis, id tincidunt leo. Nam ornare, orci non gravida rhoncus, lacus nulla congue sapien, ut dignissim ex mi vitae nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas quis massa eu urna euismod egestas. Ut auctor tellus erat, sit amet dapibus ligula viverra sed. Curabitur fermentum mi sodales ullamcorper cursus. Donec malesuada orci vitae dictum pharetra. Vivamus in hendrerit arcu, laoreet dapibus erat.</p>
+        <p style="text-align: justify">Morbi a eros tellus. Sed id metus quis ante venenatis mattis vitae vel nunc. Aliquam vel justo risus. Nam eget erat eget dolor consequat sodales eget vel mi. Cras purus massa, blandit sit amet diam eu, tempor iaculis quam. Phasellus nec odio ipsum. Ut posuere viverra velit nec tristique. Ut ligula lectus, cursus sed bibendum nec, condimentum vitae magna.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+/**
+ * Helps:
+ * https://docs.gradle.org/6.3/dsl/org.gradle.api.initialization.Settings.html
+ * https://docs.gradle.org/current/userguide/multi_project_builds.html
+ */
+rootProject.name = 'report-generator'
+
+include 'src/application', 'src/common', 'src/domain', 'src/usecase'
+
+findProject(':src/application')?.name = 'report-generator-application'
+findProject(':src/common')?.name = 'report-generator-common'
+findProject(':src/domain')?.name = 'report-generator-domain'
+findProject(':src/usecase')?.name = 'report-generator-usecase'
+

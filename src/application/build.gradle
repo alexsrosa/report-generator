@@ -1,0 +1,13 @@
+plugins {
+    id 'org.springframework.boot'
+}
+
+dependencies {
+
+    /**
+     * Import modules
+     */
+    implementation project(':report-generator-common')
+    implementation project(':report-generator-domain')
+    implementation project(':report-generator-usecase')
+}

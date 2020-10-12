@@ -1,0 +1,71 @@
+plugins {
+    id "org.springframework.boot" version "2.3.4.RELEASE"
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'java'
+}
+
+ext {
+    set('springCloudVersion', "Hoxton.SR3")
+}
+
+bootJar {
+    mainClassName = 'br.com.software.reportgenerator.ReportGeneratorApplication'
+}
+
+repositories {
+    jcenter()
+}
+
+subprojects {
+
+    group = 'br.com.software'
+    version = '0.0.1-SNAPSHOT'
+
+    apply plugin: 'application'
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'java-library'
+
+    repositories {
+        jcenter()
+    }
+
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
+    dependencies {
+        compile 'org.springframework.boot:spring-boot-configuration-processor'
+        implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+        implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+        compile 'org.xhtmlrenderer:flying-saucer-pdf:9.1.20'
+        compile 'ognl:ognl:3.2.10'
+        compile "org.apache.pdfbox:pdfbox:2.0.20"
+
+        compileOnly 'org.projectlombok:lombok:1.18.12'
+        compileOnly 'org.springframework.boot:spring-boot-devtools'
+        annotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+        testCompile 'org.springframework.boot:spring-boot-starter-test'
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
+
+    compileJava {
+        sourceCompatibility = "12"
+        targetCompatibility = "12"
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}
