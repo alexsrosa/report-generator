@@ -9,7 +9,7 @@ ext {
 }
 
 bootJar {
-    mainClassName = 'br.com.software.reportgenerator.ReportGeneratorApplication'
+    mainClassName = 'br.com.software.report.generator.ReportGeneratorApplication'
 }
 
 repositories {

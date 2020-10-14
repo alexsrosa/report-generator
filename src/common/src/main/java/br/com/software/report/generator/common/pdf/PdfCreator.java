@@ -24,7 +24,6 @@ public class PdfCreator {
         renderer.layout();
 
         try {
-            renderer.writeNextDocument(1);
             renderer.createPDF(outputStream);
         } catch (DocumentException e) {
             throw new CreatorPdfException(e.getMessage());
